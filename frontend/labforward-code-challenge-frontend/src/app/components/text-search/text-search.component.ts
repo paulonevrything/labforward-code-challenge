@@ -11,7 +11,7 @@ import { TextSearchService } from 'src/app/services/text-search.service';
 })
 export class TextSearchComponent implements OnInit {
 
-  textSearchformGroup: FormGroup | undefined;
+  textSearchformGroup!: FormGroup;
   requestBody: TextSearchRequest | undefined;
   responseBody: TextSearchResponse | undefined;
 
