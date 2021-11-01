@@ -1,1 +1,30 @@
-<p>text-search works!</p>
+<mat-card>
+
+    <div class="container">
+
+        <mat-card-title>Search word in notebook</mat-card-title>
+
+
+        <form class="text-search-form-group" [formGroup]="textSearchformGroup" (ngSubmit)="searchWordInNotepad(textSearchformGroup.value)">
+    
+            <div class="text-search">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter a word</mat-label>
+                    <input formControlName="searchWord" matInput #input placeholder="Ex. Amoeba">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Paste the notebook text here</mat-label>
+                    <textarea matInput formControlName="noteBookText"></textarea>
+                </mat-form-field>
+    
+                <br>
+                <button [disabled]="!textSearchformGroup.valid" type="submit" mat-flat-button color="primary">Submit</button>
+            </div>
+    
+        </form>
+
+    </div>
+
+
+</mat-card>

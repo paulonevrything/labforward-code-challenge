@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TextSearchRequest } from 'src/app/models/TextSearchRequest';
+import { TextSearchResponse } from 'src/app/models/TextSearchResponse';
+import { TextSearchService } from 'src/app/services/text-search.service';
 
 @Component({
   selector: 'app-text-search',
@@ -7,9 +11,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextSearchComponent implements OnInit {
 
-  constructor() { }
+  textSearchformGroup: FormGroup | undefined;
+  requestBody: TextSearchRequest | undefined;
+  responseBody: TextSearchResponse | undefined;
+
+  constructor(private fb: FormBuilder, private textSearchService: TextSearchService) { }
 
   ngOnInit(): void {
+
+    this.textSearchformGroup = this.fb.group({
+
+      searchWord: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+
+      noteBookText: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+    })
+
+  }
+
+  searchWordInNotepad(formValue: any) {
+
+    this.requestBody = {searchWord: formValue.searchWord, notepadText: formValue.notepadText};
+    
+    this.textSearchService.getWordFrequencyAndSimilarWords(this.requestBody).subscribe(response => {
+
+      this.responseBody = {wordFrequency: response.wordFrequency, similarWords: response.similarWords}
+
+    });
+
+    console.log(formValue);
   }
 
 }

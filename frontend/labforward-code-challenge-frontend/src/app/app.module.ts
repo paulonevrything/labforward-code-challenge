@@ -8,6 +8,8 @@ import { MaterialModule } from './modules/material/material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TextSearchComponent } from './components/text-search/text-search.component';
 import { TextSearchResultComponent } from './components/text-search-result/text-search-result.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { TextSearchResultComponent } from './components/text-search-result/text-
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
