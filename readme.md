@@ -13,9 +13,9 @@ Develop a simple Java REST API endpoint that takes a notebook entry with text an
 - API documentation using Swagger UI
 
 ## Time spent
-Frontend - 3 hours
-Backend - 3 hours
-Test - 1 hour
+- Frontend - 2.5 hours
+- Backend - 3 hours
+- Test - 1 hour
 
 ## User Interface
 - A simple frontend application built with Angular using [Angular Material](https://material.angular.io/) compnents
