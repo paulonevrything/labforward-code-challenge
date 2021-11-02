@@ -15,6 +15,7 @@ Develop a simple Java REST API endpoint that takes a notebook entry with text an
 ## Time spent
 Frontend - 3 hours
 Backend - 3 hours
+Test - 1 hour
 
 ## User Interface
 - A simple frontend application built with Angular using [Angular Material](https://material.angular.io/) compnents
@@ -36,4 +37,4 @@ Frontend
 
     npm install
     ng serve -o
-![Frontend applicaiton](https://lh3.googleusercontent.com/ogw/ADea4I5_HLl3NZyJbJ_9McIdkkQAiqgzYFHGKbj75RCZdvo=s64-c-mo)
+![Frontend applicaiton](https://github.com/paulonevrything/labforward-code-challenge/blob/main/frontend-application.png)
