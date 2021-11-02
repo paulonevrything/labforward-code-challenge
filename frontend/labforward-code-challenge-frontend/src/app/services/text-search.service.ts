@@ -23,6 +23,8 @@ export class TextSearchService {
 
   getWordFrequencyAndSimilarWords(requestData: TextSearchRequest): Observable<any> {
 
+    console.log(requestData);
+
     return this.http.post(this.getWordFrequencyAndSimilarWordsUrl, requestData, this.httpOptions);
   }
 }

@@ -7,14 +7,15 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/v1/textSearch")
+@RequestMapping(value = "/api/v1/textSearch", consumes = "application/json", produces = "application/json")
 @ApiResponses(value = {
         @io.swagger.annotations.ApiResponse(code = 400, message = "Bad request"),
-        @io.swagger.annotations.ApiResponse(code = 500, message = "An internal error occured"),
+        @io.swagger.annotations.ApiResponse(code = 500, message = "An internal error occurred"),
         @io.swagger.annotations.ApiResponse(code = 200, message = "Success")
 }
 )
@@ -24,9 +25,7 @@ public class TextSearchController {
     TextSearchService textSearchService;
 
     @PostMapping("/getWordFrequencyAndSimilarWords")
-    public ResponseEntity<TextSearchResponse> getWordFrequencyAndSimilarWords(@RequestBody TextSearchRequest request) {
-
-        // validate request body
+    public ResponseEntity<TextSearchResponse> getWordFrequencyAndSimilarWords(@RequestBody @Valid TextSearchRequest request) {
 
         TextSearchResponse response = textSearchService.getWordFrequencyAndSimilarWords(request);
         return new ResponseEntity<>(response, HttpStatus.OK);

@@ -1,9 +1,15 @@
 package com.labforward.wordsearchapi.domain.request;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class TextSearchRequest {
 
+    @NotBlank
+    @NotNull
     private String searchWord;
 
+    @NotBlank
+    @NotNull
     private String notepadText;
 
     public String getSearchWord() {

@@ -16,7 +16,7 @@
 
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Paste the notebook text here</mat-label>
-                    <textarea rows="5" cols="100" matInput formControlName="noteBookText"></textarea>
+                    <textarea rows="5" cols="100" matInput formControlName="notepadText"></textarea>
                 </mat-form-field>
 
                 <br>
@@ -26,17 +26,25 @@
 
         </form>
 
-        <div class="search-results" *ngIf="responseBody">
+        <mat-card *ngIf="responseBody">
 
-            <p>{{responseBody.wordFrequency}}</p>
-            <mat-list>
-                <div mat-subheader>Folders</div>
-                <mat-list-item *ngFor="let word of responseBody.similarWords">
-                    <div mat-line>{{word}}</div>
-                </mat-list-item>
-            </mat-list>
+            <mat-card-subtitle>Results</mat-card-subtitle>
 
-        </div>
+            <div class="search-results">
+
+                <p>The frequency of the search word is: {{responseBody.wordFrequency}}</p>
+                <p>Similar words to it are:</p>
+                <mat-list>
+                    <mat-list-item *ngFor="let word of responseBody.similarWords">
+                        <div mat-line>{{word}}</div>
+                    </mat-list-item>
+                </mat-list>
+
+            </div>
+
+        </mat-card>
+
+
 
     </div>
 

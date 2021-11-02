@@ -25,7 +25,7 @@ export class TextSearchComponent implements OnInit {
         Validators.required
       ])),
 
-      noteBookText: new FormControl('', Validators.compose([
+      notepadText: new FormControl('', Validators.compose([
         Validators.required
       ])),
     })
@@ -34,15 +34,16 @@ export class TextSearchComponent implements OnInit {
 
   searchWordInNotepad(formValue: any) {
 
-    this.requestBody = {searchWord: formValue.searchWord, notepadText: formValue.notepadText};
-    
+    this.requestBody = { searchWord: formValue.searchWord, notepadText: formValue.notepadText };
+
     this.textSearchService.getWordFrequencyAndSimilarWords(this.requestBody).subscribe(response => {
 
-      this.responseBody = {wordFrequency: response.wordFrequency, similarWords: response.similarWords}
+      console.log(response);
+
+      this.responseBody = { wordFrequency: response.wordFrequency, similarWords: response.similarWords }
 
     });
 
-    console.log(formValue);
   }
 
 }
